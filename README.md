@@ -9,7 +9,7 @@ USE BlogDb;
 GO
 
 -----------------------------------------------------
--- 1) Role
+1) Role
 -----------------------------------------------------
 CREATE TABLE [Role] (
     [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -17,7 +17,7 @@ CREATE TABLE [Role] (
 );
 
 -----------------------------------------------------
--- 2) User
+2) User
 -----------------------------------------------------
 CREATE TABLE [User] (
     [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -33,7 +33,7 @@ CREATE TABLE [User] (
 );
 
 -----------------------------------------------------
--- 3) Skill
+3) Skill
 -----------------------------------------------------
 CREATE TABLE [Skill] (
     [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -41,7 +41,7 @@ CREATE TABLE [Skill] (
 );
 
 -----------------------------------------------------
--- 4) Tag
+4) Tag
 -----------------------------------------------------
 CREATE TABLE [Tag] (
     [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -49,7 +49,7 @@ CREATE TABLE [Tag] (
 );
 
 -----------------------------------------------------
--- 5) Blog
+5) Blog
 -----------------------------------------------------
 CREATE TABLE [Blog] (
     [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -63,7 +63,7 @@ CREATE TABLE [Blog] (
 );
 
 -----------------------------------------------------
--- 6) BlogTag
+6) BlogTag
 -----------------------------------------------------
 CREATE TABLE [BlogTag] (
     [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -76,7 +76,7 @@ CREATE TABLE [BlogTag] (
 );
 
 -----------------------------------------------------
--- 7) UserSkill
+7) UserSkill
 -----------------------------------------------------
 CREATE TABLE [UserSkill] (
     [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
