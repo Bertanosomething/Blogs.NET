@@ -2,9 +2,7 @@
 
 # For the initialization of local database
 
--- (Optional) Create and use a dedicated database
--- CREATE DATABASE BlogDb;
-
+CREATE DATABASE BlogDb;
 GO
 USE BlogDb;
 GO
