@@ -4,6 +4,7 @@
 
 -- (Optional) Create and use a dedicated database
 -- CREATE DATABASE BlogDb;
+
 GO
 USE BlogDb;
 GO
