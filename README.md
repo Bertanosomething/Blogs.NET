@@ -2,6 +2,7 @@
 
 # For the initialization of local database
 
+```
 CREATE DATABASE BlogDb;
 GO
 USE BlogDb;
@@ -86,3 +87,5 @@ CREATE TABLE [UserSkill] (
     CONSTRAINT FK_UserSkill_Skill
         FOREIGN KEY ([SkillId]) REFERENCES [Skill]([Id])
 );
+```
+
