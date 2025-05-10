@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using System.ComponentModel.DataAnnotations;
-using System.Text.Json.Serialization;
+//using System.ComponentModel.DataAnnotations;
+//using System.Text.Json.Serialization;
 using Microsoft.EntityFrameworkCore;
 using APP.Users.Domain;
 using APP.Users.Features.Roles;
@@ -12,14 +12,14 @@ namespace APP.Users.Features.Users
 {
        public class UserQueryRequest : Request, IRequest<IQueryable<UserQueryResponse>>
         {
-            [JsonIgnore]
-            public override int Id { get => base.Id; set => base.Id = value; }
+            //[JsonIgnore]
+            //public override int Id { get => base.Id; set => base.Id = value; }
 
-            [StringLength(30, MinimumLength = 3)]
-            public string UserName { get; set; }
+            //[StringLength(30, MinimumLength = 3)]
+            //public string UserName { get; set; }
 
-            [StringLength(10, MinimumLength = 3)]
-            public string Password { get; set; }
+            //[StringLength(10, MinimumLength = 3)]
+            //public string Password { get; set; }
         }
         
         // Kullanıcı sorgulama sonucu DTO'su
@@ -59,14 +59,14 @@ namespace APP.Users.Features.Users
                 .ThenBy(u => u.UserName)
                 .AsQueryable();
 
-                if (!string.IsNullOrWhiteSpace(request.UserName) &&
-                    !string.IsNullOrWhiteSpace(request.Password))
-                {
-                    entityQuery = entityQuery.Where(u =>
-                        u.UserName == request.UserName &&
-                        u.Password == request.Password &&
-                        u.IsActive);
-                }
+                //if (!string.IsNullOrWhiteSpace(request.UserName) &&
+                //    !string.IsNullOrWhiteSpace(request.Password))
+                //{
+                //    entityQuery = entityQuery.Where(u =>
+                //        u.UserName == request.UserName &&
+                //        u.Password == request.Password &&
+                //        u.IsActive);
+                //}
 
                 var query = entityQuery.Select(u => new UserQueryResponse
                 {

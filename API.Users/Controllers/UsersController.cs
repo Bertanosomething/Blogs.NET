@@ -4,12 +4,14 @@ using Microsoft.EntityFrameworkCore;
 using MediatR;
 using CORE.APP.Features;
 using APP.Users.Features.Users;
+using Microsoft.AspNetCore.Authorization;
 
 //Generated from Custom Template.
 namespace API.Users.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(Roles = "Admin")]
     public class UsersController : ControllerBase
     {
         private readonly ILogger<UsersController> _logger;
@@ -56,6 +58,31 @@ namespace API.Users.Controllers
             {
                 _logger.LogError("UsersGetById Exception: " + exception.Message);
                 return StatusCode(StatusCodes.Status500InternalServerError, new CommandResponse(false, "An exception occured during UsersGetById."));
+            }
+        }
+
+        // Way 1:
+        //[HttpPost("[action]")] // api/Users/Token
+        // Way 2:
+        [HttpPost, Route("/api/[action]")] // api/Token
+        [AllowAnonymous]
+        public async Task<IActionResult> Token(TokenRequest request)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    var response = await _mediator.Send(request);
+                    if (response.IsSuccessful)
+                        return Ok(response);
+                    ModelState.AddModelError("UsersToken", response.Message);
+                }
+                return BadRequest(new CommandResponse(false, string.Join("|", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage))));
+            }
+            catch (Exception exception)
+            {
+                _logger.LogError("UsersToken Exception: " + exception.Message);
+                return StatusCode(StatusCodes.Status500InternalServerError, new CommandResponse(false, "An exception occured during UsersToken."));
             }
         }
 
