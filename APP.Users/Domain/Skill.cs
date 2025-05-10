@@ -4,7 +4,8 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace APP.BLOG.Models;
+namespace APP.Users.Domain;
+
 
 [Table("Skill")]
 public partial class Skill

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+#nullable disable
 
-namespace APP.BLOG.Models;
+namespace APP.Users.Domain;
 
 [Table("User")]
 public partial class User
@@ -31,8 +31,6 @@ public partial class User
 
     public int RoleId { get; set; }
 
-    [InverseProperty("User")]
-    public virtual ICollection<Blog> Blogs { get; set; } = new List<Blog>();
 
     [ForeignKey("RoleId")]
     [InverseProperty("Users")]
@@ -40,4 +38,12 @@ public partial class User
 
     [InverseProperty("User")]
     public virtual ICollection<UserSkill> UserSkills { get; set; } = new List<UserSkill>();
+
+
+    [NotMapped]
+    public List<int> SkillIds
+    {
+        get => UserSkills?.Select(us => us.SkillId).ToList();
+        set => UserSkills = value?.Select(v => new UserSkill() { SkillId = v }).ToList();
+    }
 }

@@ -38,8 +38,8 @@ namespace APP.Projects.Features.Blogs
         /// <summary>
         /// The user ID who authored this blog (foreign key to User).
         /// </summary>
-        [Required]
-        public int UserId { get; set; }
+        //[Required]
+        //public int UserId { get; set; }
 
         /// <summary>
         /// List of tag IDs associated with this blog.
@@ -73,7 +73,7 @@ namespace APP.Projects.Features.Blogs
                 Content = request.Content.Trim(),
                 Rating = request.Rating,
                 PublishDate = request.PublishDate,
-                UserId = request.UserId
+                //UserId = request.UserId
             };
 
             // Add the blog to the context

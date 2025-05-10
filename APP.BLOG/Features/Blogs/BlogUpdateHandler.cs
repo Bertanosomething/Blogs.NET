@@ -44,8 +44,8 @@ namespace APP.Projects.Features.Blogs
         /// <summary>
         /// The user ID who authored this blog.
         /// </summary>
-        [Required]
-        public int UserId { get; set; }
+        //[Required]
+        //public int UserId { get; set; }
 
         /// <summary>
         /// New set of tag IDs for the blog.
@@ -88,7 +88,7 @@ namespace APP.Projects.Features.Blogs
             blogEntity.Content = request.Content.Trim();
             blogEntity.Rating = request.Rating;
             blogEntity.PublishDate = request.PublishDate;
-            blogEntity.UserId = request.UserId;
+            //blogEntity.UserId = request.UserId;
 
             // Re-add the new set of Tag IDs
             if (request.TagIds != null && request.TagIds.Any())

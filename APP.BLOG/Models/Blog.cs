@@ -23,12 +23,10 @@ public partial class Blog
     [Column(TypeName = "datetime")]
     public DateTime PublishDate { get; set; }
 
-    public int UserId { get; set; }
-
     [InverseProperty("Blog")]
     public virtual ICollection<BlogTag> BlogTags { get; set; } = new List<BlogTag>();
 
-    [ForeignKey("UserId")]
+    /*[ForeignKey("UserId")]
     [InverseProperty("Blogs")]
-    public virtual User User { get; set; } = null!;
+    public virtual User User { get; set; } = null!;*/
 }

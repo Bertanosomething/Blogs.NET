@@ -23,7 +23,7 @@ namespace APP.Projects.Features.Blogs
         public string Content { get; set; }
         public decimal? Rating { get; set; }
         public DateTime PublishDate { get; set; }
-        public int UserId { get; set; }
+        //public int UserId { get; set; }
 
         /// <summary>
         /// List of Tag IDs linked to this blog.
@@ -53,7 +53,7 @@ namespace APP.Projects.Features.Blogs
                     Content = b.Content,
                     Rating = b.Rating,
                     PublishDate = b.PublishDate,
-                    UserId = b.UserId,
+                    //UserId = b.UserId,
                     TagIds = b.BlogTags.Select(bt => bt.TagId).ToList()
                 })
                 .OrderBy(b => b.Title);
